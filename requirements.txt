@@ -6,3 +6,60 @@ tiktoken
 fairscale
 pydantic==1.10.13
 pydantic_core==2.18.2
+
+
+from setuptools import setup
+
+
+def read_requirements():
+    with open("requirements.txt") as fp:
+        content = fp.readlines()
+    return [line.strip() for line in content if not line.startswith("#")]
+
+
+
+setup(
+    name="llama_models",
+    version="0.0.1",
+    author="Meta Llama",
+    author_email="llama-oss@meta.com",
+    description="Llama models",
+    long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
+    url="https://github.com/meta-llama/llama-models",
+    package_dir={"llama_models": "models"},
+    classifiers=[],
+    python_requires=">=3.10",
+    install_requires=read_requirements(),
+    include_package_data=True,
+)
+
+
+
+
+
+
+This function call provides metadata and configuration options for the package:
+name: The name of the package (llama_models).
+version: The current version of the package (0.0.1).
+author: The name of the author or organization (Meta Llama).
+author_email: The email address for the author or organization (llama-oss@meta.com).
+description: A short description of the package (Llama models).
+long_description: A longer description of the package, read from the README.md file.
+long_description_content_type: The format of the long description (text/markdown).
+url: The URL for the project’s homepage (https://github.com/meta-llama/llama-models).
+package_dir: A dictionary specifying the package directories. Here, it maps the llama_models package to the models directory.
+classifiers: A list of classifiers that provide additional metadata about the package (currently empty).
+python_requires: Specifies the Python version requirement (>=3.10).
+install_requires: Specifies the package dependencies, obtained by calling the read_requirements function.
+include_package_data: A boolean indicating whether to include additional files specified in MANIFEST.in.
+
+
+
+
+
+
+
+
+Conclusion
+This setup.py script is designed to package and distribute the llama_models Python project. It includes metadata about the project, reads the dependencies from a requirements.txt file, and sets up the package configuration using setuptools. This script is essential for making the project installable via package managers like pip.
